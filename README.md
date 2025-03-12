@@ -1,3 +1,9 @@
+# automate-sm-client
+
+Frontend with modern technologies React, Antd
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
