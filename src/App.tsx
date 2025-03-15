@@ -1,40 +1,12 @@
-import { ConfigProvider } from "antd";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import { store } from "./api/data/store";
-import SetPassword from "./page/auth/SetPassword";
-import ForgotPassword from "./page/onboarding/ForgotPassword";
-import Login from "./page/onboarding/Login";
-import Register from "./page/onboarding/Register";
-import RoutesList from "./page/RouteList";
-import { useEffect } from "react";
-import { useGetAuthUserQuery } from "./api/auth.api";
-import { api } from "./api/base";
-import Loading from "./components/shared/Loading";
-import ResetPassword from "./page/onboarding/ResetPassword";
-import VerifyEmail from "./page/onboarding/OtpScreen";
-import { PopupProvider } from "./context/PopupContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import VerifyEmail from "./pages/OtpScreen";
+import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import Login from "./pages/Login";
+import store from "./api/data/store";
 
-function Home() {
-  const navigate = useNavigate();
-
-  // const { error, isLoading, data } = useGetAuthUserQuery();
-
-//   useEffect(() => {
-//     if (data) {
-//       navigate("/installation/new-installation");
-//     } else if (error && "status" in error && error.status === 401) {
-//       api.util.resetApiState();
-//       navigate("/login", { replace: true });
-//     }
-//   }, [isLoading, error, navigate, data]);
-
-//   return (
-//     <div className="h-screen">
-//       <Loading />
-//     </div>
-//   );
-}
 
 export default function App() {
   return (
@@ -49,8 +21,8 @@ export default function App() {
               <Route path="/otp" element={<VerifyEmail />} />
               <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/reset" element={<ResetPassword />} />
-              <Route path="/*" element={<RoutesList />} />
-              <Route path="/auth/set-password" element={<SetPassword />} />
+              {/* <Route path="/*" element={<RoutesList />} /> */}
+              {/* <Route path="/auth/set-password" element={<SetPassword />} /> */}
             </Routes>
           </BrowserRouter>
        
