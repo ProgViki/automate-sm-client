@@ -16,9 +16,9 @@ export default function App() {
           <BrowserRouter>
             <Routes>
               {/* <Route path="/" element={<Home />} /> */}
-              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/otp" element={<VerifyEmail />} />
+              {/* <Route path="/otp" element={<VerifyEmail />} /> */}
               <Route path="/forgot" element={<ForgotPassword />} />
               <Route path="/reset" element={<ResetPassword />} />
               {/* <Route path="/*" element={<RoutesList />} /> */}

@@ -1,14 +1,14 @@
 import { Form, Input, Button, message } from "antd";
 import { BiArrowBack } from "react-icons/bi";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useResetPasswordMutation } from "../../api/auth.api";
+// import { useResetPasswordMutation } from "../../api/auth.api";
 
 const ResetPassword = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token"); // Extract token from URL
-  const [resetPassword, { isLoading }] = useResetPasswordMutation();
+  // const [resetPassword, { isLoading }] = useResetPasswordMutation();
 
   if (!token) {
     message.error("Invalid or expired reset link.");
@@ -16,19 +16,19 @@ const ResetPassword = () => {
     return null;
   }
 
-  const handleSubmit = async (values: { newPassword: string; confirmPassword: string }) => {
-    if (values.newPassword !== values.confirmPassword) {
-      return message.error("Passwords do not match!");
-    }
+  // const handleSubmit = async (values: { newPassword: string; confirmPassword: string }) => {
+  //   if (values.newPassword !== values.confirmPassword) {
+  //     return message.error("Passwords do not match!");
+  //   }
 
-    try {
-      await resetPassword({ token, newPassword: values.newPassword }).unwrap();
-      message.success("Password reset successful! You can now log in.");
-      navigate("/login");
-    } catch (error: any) {
-      message.error(error?.data?.message || "Failed to reset password. Try again.");
-    }
-  };
+  //   try {
+  //     await resetPassword({ token, newPassword: values.newPassword }).unwrap();
+  //     message.success("Password reset successful! You can now log in.");
+  //     navigate("/login");
+  //   } catch (error: any) {
+  //     message.error(error?.data?.message || "Failed to reset password. Try again.");
+  //   }
+  // };
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -43,7 +43,9 @@ const ResetPassword = () => {
         <h3 className="text-2xl font-bold text-center">Reset Password</h3>
         <p className="text-sm text-center">Enter your new password below.</p>
 
-        <Form form={form} name="resetPassword" layout="vertical" onFinish={handleSubmit} className="w-full max-w-md px-4 space-y-4 bg-white">
+        <Form form={form} name="resetPassword" layout="vertical" 
+        // onFinish={handleSubmit} 
+        className="w-full max-w-md px-4 space-y-4 bg-white">
           <Form.Item name="newPassword" label="New Password" rules={[{ required: true, message: "Please enter new password!" }]}>
             <Input.Password placeholder="Enter new password" />
           </Form.Item>
